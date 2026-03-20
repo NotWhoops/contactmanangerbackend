@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using blogapibvh2.Models.DTO;
 using blogapijlmv2.Models;
 using blogapijlmv2.Models.DTO;
 using blogapijlmv2.Services;
@@ -35,9 +34,9 @@ namespace blogapijlmv2.Controllers
 
 
         [HttpGet("GetUserByUserName")]
-        public UserIdDTO GetUserDTOUserName(string username)
+        public UserModel GetUserUserName(string username)
         {
-            return _data.GetUserIdDTOByUserName(username);
+            return _data.GetUserByUsername(username);
         }
 
 

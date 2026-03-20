@@ -6,12 +6,12 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using blogapibvh2.Models.DTO;
 using blogapibvh2.Services.Context;
 using blogapijlmv2.Models;
 using blogapijlmv2.Models.DTO;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.IdentityModel.Tokens;
 
 namespace blogapijlmv2.Services
@@ -137,14 +137,9 @@ namespace blogapijlmv2.Services
             return result;
         }
 
-        public UserIdDTO GetUserIdDTOByUserName(string username)
-        {
-            return _context.UserIdInfo.FirstOrDefault(UserIdInfo => UserIdInfo.PublisherName == username);
-        }
-
         public UserModel GetUserByUsername(string username)
         {
-            return _context.UserInfo.SingleOrDefault(user => user.Username ==  username);
+            return _context.UserInfo.SingleOrDefault(user => user.Username == username);
         }
 
         public bool DeleteUser(string userToDelete)
