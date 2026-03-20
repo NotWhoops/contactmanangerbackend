@@ -139,7 +139,7 @@ namespace blogapijlmv2.Services
 
         public UserIdDTO GetUserIdDTOByUserName(string username)
         {
-            return _context.UserIdInfo.FirstOrDefault(UserIdDTO => UserIdDTO.PublisherName == username);
+            return _context.UserIdInfo.FirstOrDefault(UserIdInfo => UserIdInfo.PublisherName == username);
         }
 
         public UserModel GetUserByUsername(string username)

@@ -11,7 +11,7 @@ using blogapibvh2.Services.Context;
 namespace contactmanangerbackend.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20260320182351_init")]
+    [Migration("20260320184543_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -23,6 +23,25 @@ namespace contactmanangerbackend.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("blogapibvh2.Models.DTO.UserIdDTO", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("PublisherName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserIdInfo");
+                });
 
             modelBuilder.Entity("blogapijlmv2.Models.UserModel", b =>
                 {
